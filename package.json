@@ -2,7 +2,7 @@
   "name": "gamedao-haiku",
   "private": true,
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "workspaces": [
     "pkg/*"
