@@ -37,11 +37,11 @@ export function FormVoting(props) {
 			<Grid container spacing={2}>
 				<Grid item xs={12}>
 					<Box>
-						<Typography variant='h6'>Create Proposal</Typography>
+						<Typography variant="h6">Create Proposal</Typography>
 					</Box>
-					<Box display='flex' justifyContent='flex-end' alignItems='center' flex='1'>
+					<Box display="flex" justifyContent="flex-end" alignItems="center" flex="1">
 						<Button
-							variant='outlined'
+							variant="outlined"
 							onClick={() => {
 								props.isCloseProposal(true)
 							}}
@@ -55,7 +55,7 @@ export function FormVoting(props) {
 								<Divider>Context</Divider>
 							</Grid>
 							<Grid item xs={12} md={6}>
-								<TextField label='Organization' fullWidth name='entity' select {...register('entity')}>
+								<TextField label="Organization" fullWidth name="entity" select {...register('entity')}>
 									{data.memberships.map((ms) => (
 										<MenuItem key={ms.key} value={ms.value}>
 											{ms.text}
@@ -70,7 +70,7 @@ export function FormVoting(props) {
 									select
 									defaultValue={0}
 									fullWidth
-									variant='outlined'
+									variant="outlined"
 									{...register('proposal_type')}
 								>
 									{data.proposal_types.map((pt) => (
@@ -117,7 +117,7 @@ export function FormVoting(props) {
 								<TextField
 									label={'Voting Type'}
 									name={'voting_type'}
-									variant='outlined'
+									variant="outlined"
 									select
 									{...register('voting_type')}
 									defaultValue={0}
@@ -156,7 +156,7 @@ export function FormVoting(props) {
 											type={'number'}
 											name={'collateral_amount'}
 											InputProps={{
-												endAdornment: <InputAdornment position='end'>GAME</InputAdornment>,
+												endAdornment: <InputAdornment position="end">GAME</InputAdornment>,
 											}}
 											{...register('collateral_amount')}
 											fullWidth
@@ -197,7 +197,7 @@ export function FormVoting(props) {
 											name={'amount'}
 											{...register('amount')}
 											InputProps={{
-												endAdornment: <InputAdornment position='end'>ZERO</InputAdornment>,
+												endAdornment: <InputAdornment position="end">ZERO</InputAdornment>,
 											}}
 											fullWidth
 											label={'Amount to transfer on success'}
@@ -208,11 +208,11 @@ export function FormVoting(props) {
 							)}
 							<Grid item xs={12}>
 								<Button
-									type='submit'
+									type="submit"
 									variant={'contained'}
 									fullWidth
 									color={'primary'}
-									size='large'
+									size="large"
 									disabled={loading}
 									onClick={handleSubmit(onSubmit)}
 								>

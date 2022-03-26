@@ -15,8 +15,7 @@ const GATEWAY_URL = config.GATEWAY_URL
 const GATEWAY_PROTOCOL = config.GATEWAY_PROTOCOL
 const GATEWAY_PORT = config.GATEWAY_PORT
 
-export const gateway =
-	GATEWAY_PROTOCOL + '://' + GATEWAY_URL + (GATEWAY_PORT ? ':' + GATEWAY_PORT : '') + '/gateway/'
+export const gateway = GATEWAY_PROTOCOL + '://' + GATEWAY_URL + (GATEWAY_PORT ? ':' + GATEWAY_PORT : '') + '/gateway/'
 
 //
 //	init ipfs client

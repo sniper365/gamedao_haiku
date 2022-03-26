@@ -25,7 +25,7 @@ export function FormDao(props) {
 	const [filePath, setFilePath] = useState('')
 	const accounts = [
 		'3ZBh2L6YhhmBRWG8UavtA7zJnFcpTemUmSrL8LfH43Rym2WJ',
-		'3T9tBQ3UePp25qDcY8ncZfEhajn1iyVoj85mfLhb51VotMee'
+		'3T9tBQ3UePp25qDcY8ncZfEhajn1iyVoj85mfLhb51VotMee',
 	]
 	const validationSchema = Yup.object().shape({
 		org_name: Yup.string().required('Organization Name is required'),
@@ -35,15 +35,15 @@ export function FormDao(props) {
 		description: Yup.string().required('Description is required'),
 		controller_account: Yup.string()
 			.required('Controller account is required')
-			.test('This is zero-address', 'This is not valid zero-address', value => {
+			.test('This is zero-address', 'This is not valid zero-address', (value) => {
 				return isValidZeroAddress(value)
 			}),
 		treasury_account: Yup.string()
 			.required('Treasury account is required')
 			.notOneOf([Yup.ref('controller_account'), null], 'Must not be same Controller Account')
-			.test('This is zero-address', 'This is not valid zero-address', value => {
+			.test('This is zero-address', 'This is not valid zero-address', (value) => {
 				return isValidZeroAddress(value)
-			})
+			}),
 	})
 	const {
 		register,
@@ -54,8 +54,8 @@ export function FormDao(props) {
 		resolver: yupResolver(validationSchema),
 	})
 	const onSubmit = (data) => {
-		let file = {path:filePath}
-		let allData = {...data,...file}
+		let file = { path: filePath }
+		let allData = { ...data, ...file }
 		const formData = JSON.stringify(allData, null, 2)
 		alert(formData)
 		props.parentCallback(formData)
@@ -78,9 +78,9 @@ export function FormDao(props) {
 						</Grid>
 						<Grid item xs={12} md={6}>
 							<TextField
-								label='Organization Name'
-								placeholder='Organization Name'
-								name='org_name'
+								label="Organization Name"
+								placeholder="Organization Name"
+								name="org_name"
 								error={errors.org_name ? true : false}
 								helperText={errors?.org_name?.message}
 								{...register('org_name', {
@@ -93,11 +93,11 @@ export function FormDao(props) {
 						</Grid>
 						<Grid item xs={12} md={6}>
 							<TextField
-								label='Organization email'
-								id='org-email-label'
+								label="Organization email"
+								id="org-email-label"
 								fullWidth
-								placeholder='Organization email'
-								name='org_email'
+								placeholder="Organization email"
+								name="org_email"
 								{...register('org_email')}
 								error={errors.org_email ? true : false}
 								helperText={errors?.org_email?.message}
@@ -108,7 +108,7 @@ export function FormDao(props) {
 							<TextField
 								label={'Organizational Body'}
 								name={'org_body'}
-								variant='outlined'
+								variant="outlined"
 								select
 								{...register('org_body')}
 								fullWidth
@@ -123,10 +123,10 @@ export function FormDao(props) {
 						</Grid>
 						<Grid item xs={12}>
 							<TextField
-								label='Country'
-								name='country'
-								placeholder='Country'
-								variant='outlined'
+								label="Country"
+								name="country"
+								placeholder="Country"
+								variant="outlined"
 								select
 								defaultValue={'ch'}
 								fullWidth
@@ -145,8 +145,8 @@ export function FormDao(props) {
 						<Grid item xs={12}>
 							<Typography variant={'h6'}>Logo (800 x 800px)</Typography>
 							<FileUploadButton
-								name='file_path'
-								className='add-record-form-item upload-file-button'
+								name="file_path"
+								className="add-record-form-item upload-file-button"
 								onCapture={setFilePath}
 								onUncapture={() => setFilePath(undefined)}
 								{...register('file_path')}
@@ -164,12 +164,12 @@ export function FormDao(props) {
 						<Grid item xs={12}>
 							<TextField
 								multiline
-								aria-label='Short Description'
+								aria-label="Short Description"
 								minRows={3}
 								fullWidth
-								label='Short Description'
-								name='description'
-								placeholder='Tell us more about your organization...'
+								label="Short Description"
+								name="description"
+								placeholder="Tell us more about your organization..."
 								{...register('description')}
 								error={errors.description ? true : false}
 								helperText={errors?.description?.message}
@@ -178,21 +178,21 @@ export function FormDao(props) {
 						</Grid>
 						<Grid item xs={12} md={6}>
 							<TextField
-								label='Website'
-								placeholder='https://your.website.xyz'
+								label="Website"
+								placeholder="https://your.website.xyz"
 								// isInjected='website'
 								fullWidth
-								name='website'
+								name="website"
 								{...register('website')}
 							/>
 						</Grid>
 						<Grid item xs={12} md={6}>
 							<TextField
-								label='Code Repository'
-								placeholder='repo'
-								id='repo'
+								label="Code Repository"
+								placeholder="repo"
+								id="repo"
 								fullWidth
-								name='repo'
+								name="repo"
 								{...register('repo')}
 							/>
 						</Grid>
@@ -212,9 +212,9 @@ export function FormDao(props) {
 								renderInput={(params) => (
 									<TextField
 										{...params}
-										label='Controller Account'
-										placeholder='Controller'
-										name='controller_account'
+										label="Controller Account"
+										placeholder="Controller"
+										name="controller_account"
 										required
 										error={Boolean(errors?.controller_account)}
 										helperText={errors?.controller_account?.message}
@@ -239,9 +239,9 @@ export function FormDao(props) {
 								renderInput={(params) => (
 									<TextField
 										{...params}
-										label='Treasury Account'
-										placeholder='Treasury'
-										name='treasury_account'
+										label="Treasury Account"
+										placeholder="Treasury"
+										name="treasury_account"
 										required
 										error={Boolean(errors?.treasury_account)}
 										helperText={errors?.treasury_account?.message}
@@ -256,10 +256,10 @@ export function FormDao(props) {
 
 						<Grid item xs={12}>
 							<Select
-								labelId='member-select-label'
-								id='member-select'
-								label='Member Access Control'
-								name='access'
+								labelId="member-select-label"
+								id="member-select"
+								label="Member Access Control"
+								name="access"
 								fullWidth
 								defaultValue={1}
 								{...register('access')}
@@ -273,19 +273,19 @@ export function FormDao(props) {
 						</Grid>
 						<Grid item xs={12} md={4}>
 							<TextField
-								id='member_limit'
-								name='member_limit'
-								placeholder='100'
-								label='Member Limit'
+								id="member_limit"
+								name="member_limit"
+								placeholder="100"
+								label="Member Limit"
 								fullWidth
 								{...register('member_limit')}
 							/>
 						</Grid>
 						<Grid item xs={12} md={4}>
 							<TextField
-								label='Fee Model'
-								name='fee_model'
-								variant='outlined'
+								label="Fee Model"
+								name="fee_model"
+								variant="outlined"
 								select
 								fullWidth
 								defaultValue={0}
@@ -300,10 +300,10 @@ export function FormDao(props) {
 						</Grid>
 						<Grid item xs={12} md={4}>
 							<TextField
-								id='fee'
-								name='fee'
-								label='Membership Fee'
-								placeholder='10'
+								id="fee"
+								name="fee"
+								label="Membership Fee"
+								placeholder="10"
 								fullWidth
 								{...register('fee')}
 							/>
@@ -311,7 +311,7 @@ export function FormDao(props) {
 					</Grid>
 				</Paper>
 				<Container maxWidth={'xs'} sx={{ p: 4 }}>
-					<Button type='submit' fullWidth variant={'contained'} onClick={handleSubmit(onSubmit)}>
+					<Button type="submit" fullWidth variant={'contained'} onClick={handleSubmit(onSubmit)}>
 						Create Organization
 					</Button>
 				</Container>

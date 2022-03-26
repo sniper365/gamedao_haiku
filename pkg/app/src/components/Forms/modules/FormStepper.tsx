@@ -17,5 +17,4 @@ const FormStepper = (props) => {
 	)
 }
 
-
 export default FormStepper

@@ -24,9 +24,9 @@ export function FileUploadButton(props: FileUploadButtonProps) {
 			const name = files[0].name
 			await uploadFromDevice(files[0], (buffer) => {
 				setFile({ name, buffer })
-        uploadFile({name, buffer})
+				uploadFile({ name, buffer })
 			})
-      setFileName(name)
+			setFileName(name)
 		}
 	}
 
@@ -35,11 +35,11 @@ export function FileUploadButton(props: FileUploadButtonProps) {
 		setFileName(undefined)
 	}
 
-	const uploadFile = async (info:FileAttachment) => {
+	const uploadFile = async (info: FileAttachment) => {
 		if (info) {
 			try {
 				const fileinfo = await uploadToIpfs(info)
-        const filepath = parseFileSummary(fileinfo).ipfsPath;
+				const filepath = parseFileSummary(fileinfo).ipfsPath
 				props.onCapture(`${filepath}`)
 			} catch (err) {
 				console.log(err)
