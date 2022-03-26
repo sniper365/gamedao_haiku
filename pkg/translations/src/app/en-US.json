@@ -1,0 +1,45 @@
+{
+  "button": {
+    "navigation": {
+      "governance": "Governance",
+      "campaigns": "Campaigns",
+      "dao": "Dao",
+      "dashboard": "Dashboard",
+      "wallet": "Wallet"
+    }
+  },
+  "page": {
+    "campaigns": {
+
+    },
+    "governance": {
+
+    },
+    "dao": {
+
+    },
+    "dashboard": {
+
+    },
+    "app": {
+
+    },
+    "wallet": {
+
+    }
+  },
+  "notification":{
+    "info": {
+
+    },
+    "success": {
+
+    },
+    "warning": {
+
+    },
+    "error": {
+
+    }
+  }
+}
