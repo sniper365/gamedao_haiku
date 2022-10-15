@@ -29,7 +29,7 @@ sudo apt install nodejs npm
 
 ---
 
-## Install:
+## Install: 
 
 Run `yarn install`
 
