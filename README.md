@@ -1,6 +1,6 @@
 # Gamedao Haiku
 
-### Prerequisites
+### Prerequisites 
 
 <details><summary>node >= 16 </summary>
 <h3>Linux</h3>
